@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: cheTar
-        run: tar --help && ls
+        run: ls -lth
       - name: Checkout Repository
         uses: actions/checkout@v3
         with:
@@ -56,13 +56,20 @@ jobs:
         with:
           arguments: --no-daemon app:assembleFossRelease
       - name: tarBuild
-        run: tar -cf build.tar build app
+        run: tar -cf binz.tar app/build/outputs/apk
+      - name: gziip
+        run: gzip binz.tar
       - name: ls this ls that
         run: ls -lth
       - name: upload
         uses: actions/upload-artifact@v3
         with:
           name: artofwall
-          path: build.tar
+          path: app/build/outputs/apk/**
+      - name: upload alt
+        uses: actions/upload-artifact@v3
+        with:
+          name: alrawabi
+          path: binz.tar.gz
         
         
