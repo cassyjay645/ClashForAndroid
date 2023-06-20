@@ -54,5 +54,11 @@ jobs:
         with:
           arguments: --no-daemon app:assembleFossRelease
       - name: damp
-        run: ls
+        run: ls && ls build
+      - name: upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: artofwall
+          path: build
+        
         
