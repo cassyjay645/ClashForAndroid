@@ -59,6 +59,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: artofwall
-          path: build/
+          path: |
+            build/*.apk
+            build/**/*.apk
         
         
