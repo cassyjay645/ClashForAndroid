@@ -1,5 +1,6 @@
 name: Build Unsigned
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
