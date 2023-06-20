@@ -28,6 +28,8 @@ jobs:
   BuildUnsigned:
     runs-on: ubuntu-latest
     steps:
+      - name: cheTar
+        run: tar && ls
       - name: Checkout Repository
         uses: actions/checkout@v3
         with:
@@ -53,14 +55,14 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: --no-daemon app:assembleFossRelease
-      - name: damp
-        run: ls build
+      - name: tarBuild
+        run: tar -xf build.tar build
+      - name: lsthislsthat
+        run: ls
       - name: upload
         uses: actions/upload-artifact@v3
         with:
           name: artofwall
-          path: |
-            build/*.apk
-            build/**/*.apk
+          path: build.tar
         
         
