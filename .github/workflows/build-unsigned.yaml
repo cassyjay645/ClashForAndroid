@@ -56,7 +56,7 @@ jobs:
         with:
           arguments: --no-daemon app:assembleFossRelease
       - name: tarBuild
-        run: tar -xf build.tar build
+        run: tar -cf build.tar build
       - name: lsthislsthat
         run: ls
       - name: upload
